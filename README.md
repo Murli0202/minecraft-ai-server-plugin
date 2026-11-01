@@ -118,38 +118,38 @@ Examples:
 
 If a remote host is provided, the request is denied.
 
-## External AI provider model examples
+## Current latest provider model IDs
 
-The model IDs below are examples of commonly used provider-specific model names. Exact model availability changes over time, so check your provider dashboard before using a specific model.
+The exact model list changes frequently. The following are the current latest-generation model IDs commonly used by the major providers as of late 2026. Availability can vary by region, account tier, and rollout stage, so always confirm in the vendor dashboard before production use.
 
 ### OpenAI
 
-- `gpt-4o`
-- `gpt-4o-mini`
-- `gpt-4.1`
-- `gpt-4.1-mini`
-- `o3-mini`
+- `gpt-6-astra` — latest flagship reasoning model
+- `gpt-6.1-sol` — latest-stable production default for many workloads
+- `gpt-6-luna` — efficient high-throughput model
 
 ### Anthropic
 
-- `claude-3-5-sonnet-latest`
-- `claude-3-5-haiku-latest`
-- `claude-3-opus-latest`
+- `claude-opus-5-5` — latest flagship model
+- `claude-sonnet-5-5` — latest-stable balanced model
+- `claude-haiku-5-5` — fastest/lowest-cost model
+- `claude-fable-5-1` — specialized high-end reasoning model
 
 ### Cohere
 
-- `command-r-plus`
-- `command-r`
+- `command-r-plus` — current high-capability production model
+- `command-r` — general-purpose production model
 
 ### Google Gemini
 
-- `gemini-2.0-flash`
-- `gemini-1.5-pro`
+- `gemini-3.8-flash` — latest-stable multimodal model for production use
+- `gemini-3.5-flash-lite` — lower-cost variant
+- `gemini-4-argon` — newest flagship, availability may be limited by rollout status
 
 ### xAI Grok
 
-- `grok-2-latest`
-- `grok-2-mini-latest`
+- `grok-4.7` — current latest stable model
+- `grok-4.5` — previous generation still in use by some integrations
 
 Example config block:
 
@@ -159,7 +159,7 @@ provider: "external"
 external-ai:
   service: "openai"
   api-key: "your-api-key"
-  model: "gpt-4o"
+  model: "gpt-6.1-sol"
   max-tokens: 100
   temperature: 0.7
 ```
