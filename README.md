@@ -118,6 +118,52 @@ Examples:
 
 If a remote host is provided, the request is denied.
 
+## External AI provider model examples
+
+The model IDs below are examples of commonly used provider-specific model names. Exact model availability changes over time, so check your provider dashboard before using a specific model.
+
+### OpenAI
+
+- `gpt-4o`
+- `gpt-4o-mini`
+- `gpt-4.1`
+- `gpt-4.1-mini`
+- `o3-mini`
+
+### Anthropic
+
+- `claude-3-5-sonnet-latest`
+- `claude-3-5-haiku-latest`
+- `claude-3-opus-latest`
+
+### Cohere
+
+- `command-r-plus`
+- `command-r`
+
+### Google Gemini
+
+- `gemini-2.0-flash`
+- `gemini-1.5-pro`
+
+### xAI Grok
+
+- `grok-2-latest`
+- `grok-2-mini-latest`
+
+Example config block:
+
+```yml
+provider: "external"
+
+external-ai:
+  service: "openai"
+  api-key: "your-api-key"
+  model: "gpt-4o"
+  max-tokens: 100
+  temperature: 0.7
+```
+
 ## Troubleshooting
 
 ### Ollama not responding
