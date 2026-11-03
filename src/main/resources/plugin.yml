@@ -1,5 +1,5 @@
 name: KiPlugin
-version: 1.0
+version: 1.7
 main: de.kibot.KiPlugin
 api-version: 26.1
 description: KI-Assistent im Chat via Ollama
