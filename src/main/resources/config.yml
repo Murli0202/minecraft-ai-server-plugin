@@ -6,17 +6,62 @@
 # Beispiel: "!ki Was ist ein Creeper?"
 befehl: "!ki"
 
+# ═══════════════════════════════════════════
+#   AI Provider Configuration
+# ═══════════════════════════════════════════
+
+# Provider: "ollama" (local) or "external" (cloud-based AI)
+provider: "ollama"
+
+# ═══════════════════════════════════════════
+#   Local Ollama Configuration
+# ═══════════════════════════════════════════
+
 # Ollama Modell das genutzt werden soll
 # Installierte Modelle anzeigen: ollama list
+# Empfehlungen: mistral, llama3:8b, phi3:mini, tinyllama
 modell: "mistral"
 
 # Ollama API URL (normalerweise nicht ändern)
 ollama-url: "http://localhost:11434/api/generate"
 
+# ═══════════════════════════════════════════
+#   External AI Provider Configuration
+# ═══════════════════════════════════════════
+
+external-ai:
+  # Service: "openai", "anthropic", "cohere", "gemini", "xai"
+  service: "openai"
+  
+  # API Key (get from your provider's website)
+  # OpenAI: https://platform.openai.com/api-keys
+  # Anthropic: https://console.anthropic.com/account/keys
+  api-key: ""
+  
+  # Model name
+  # OpenAI: "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna", "gpt-4-turbo"
+  # Anthropic: "claude-fable-5", "claude-sonnet-5", "claude-opus-4.8"
+  # Cohere: "command-r-plus", "command-r"
+  # Gemini: "gemini-3.5", "gemini-3.1"
+  # xAI: "grok-4.5"
+  model: "gpt-5.6-terra"
+  
+  # Maximum tokens for response (higher = longer responses but more cost)
+  max-tokens: 100
+  
+  # Temperature: 0.0 (predictable) to 1.0 (creative)
+  temperature: 0.7
+
+# ═══════════════════════════════════════════
+#   General AI Settings
+# ═══════════════════════════════════════════
+
 # Anweisung die vor jeder Frage an die KI gesendet wird
+# Hier kannst du Sprache, Länge und Verhalten steuern
 prompt-prefix: "Antworte kurz auf Deutsch, maximal 2 Saetze: "
 
 # Präfix der vor der KI-Antwort im Chat erscheint
+# §b = Hellblau, §f = Weiß, §a = Grün, §c = Rot usw.
 chat-prefix: "§b[KI] §f"
 
 # Nachricht die erscheint während die KI nachdenkt
@@ -35,8 +80,33 @@ timeout-sekunden: 60
 # false = Alle Spieler sehen die Antwort
 nur-anfrager-sieht-antwort: false
 
-# Cow Protection feature
+# ═══════════════════════════════════════════
+#   Nachrichten-Limit
+# ═══════════════════════════════════════════
+
+# Maximale Anzahl von AI-Fragen pro Stunde für normale Spieler
+# Das Limit setzt sich jede Stunde zurück
+message-limit: 5
+
+# Spielernamen die unbegrenzte Nachrichten haben
+# Beispiel:
+#   unlimited-players:
+#     - "Steve"
+#     - "Alex"
+#     - "Admin123"
+unlimited-players: []
+
+# ═══════════════════════════════════════════
+#   Cow Protection Feature
+# ═══════════════════════════════════════════
+
 cow-protection:
+  # true  = Cow protection is enabled
+  # false = Cow protection is disabled
   enabled: true
+  
+  # Message sent to the player when they are kicked for killing a cow
   kick-message: "§cDon't kill cows on this server"
+  
+  # Message broadcast to all players when a cow dies
   death-message: "§e[Cow Protection] §fA cow has died!"
