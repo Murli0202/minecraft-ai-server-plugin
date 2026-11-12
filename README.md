@@ -31,7 +31,7 @@ ollama serve
 ### Build from source
 
 ```bash
-git clone https://github.com/Murli0202/minecraft-ai-server-plugin.git
+git clone https://github.com/Murli0202/minecraft-ai-server-plugin
 cd minecraft-ai-server-plugin
 mvn package -q
 cp target/ki-plugin-*.jar /path/to/server/plugins/
